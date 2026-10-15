@@ -18,7 +18,7 @@ jobs:
       # brew audit --online queries GitHub; unauthenticated runners share a 60-per-hour limit.
       HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Tap this repository
         run: |
