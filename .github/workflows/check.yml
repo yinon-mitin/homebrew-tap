@@ -1,0 +1,32 @@
+name: Check casks
+
+# Every change to a cask — including the automatic version bumps from release workflows —
+# goes through Homebrew's own style and audit checks.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tap this repository
+        run: |
+          mkdir -p "$(brew --repository)/Library/Taps/yinon-mitin"
+          ln -s "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/yinon-mitin/homebrew-tap"
+
+      - name: Style
+        run: brew style yinon-mitin/tap
+
+      - name: Audit
+        run: |
+          for cask in Casks/*.rb; do
+            brew audit --cask --online --strict "yinon-mitin/tap/$(basename "$cask" .rb)"
+          done
