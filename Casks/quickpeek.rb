@@ -4,7 +4,7 @@ cask "quickpeek" do
 
   url "https://github.com/yinon-mitin/QuickPeek/releases/download/v#{version}/QuickPeek-#{version}.zip"
   name "QuickPeek"
-  desc "Quick Look previews and file details for files macOS leaves blank"
+  desc "Quick Look previews and file details for formats the system cannot preview"
   homepage "https://github.com/yinon-mitin/QuickPeek"
 
   livecheck do
@@ -12,7 +12,7 @@ cask "quickpeek" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
 
   app "QuickPeek.app"
 
