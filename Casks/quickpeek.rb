@@ -1,6 +1,6 @@
 cask "quickpeek" do
-  version "0.7.0"
-  sha256 "fbffbbd305ecfe53b8772164df80e0561b36b34471da232e58397b9b47080ef6"
+  version "0.7.1"
+  sha256 "a5f0bb7e586724c2054ec8d569de3910ad3d5d82855ceee91797c5612e4b85b8"
 
   url "https://github.com/yinon-mitin/QuickPeek/releases/download/v#{version}/QuickPeek-#{version}.zip"
   name "QuickPeek"
